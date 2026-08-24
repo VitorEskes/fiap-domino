@@ -16,10 +16,7 @@ public class Jogador
     [Required]
     public Guid UsuarioId { get; set; }
 
-    [ForeignKey(nameof(UsuarioId))]
-    [InverseProperty(nameof(Entities.Usuario.Jogadores))]
     public Usuario Usuario { get; set; } = null!;
 
-    [InverseProperty(nameof(ParticipacaoPartida.Jogador))]
     public ICollection<ParticipacaoPartida> Participacoes { get; set; } = new List<ParticipacaoPartida>();
 }

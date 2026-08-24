@@ -24,6 +24,5 @@ public class Usuario
     [Required]
     public DateTime CriadoEm { get; set; } = DateTime.UtcNow;
 
-    [InverseProperty(nameof(Jogador.Usuario))]
     public ICollection<Jogador> Jogadores { get; set; } = new List<Jogador>();
 }

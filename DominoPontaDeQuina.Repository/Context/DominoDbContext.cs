@@ -22,4 +22,25 @@ public class DominoDbContext : DbContext
             optionsBuilder.UseSqlite(ConnectionString);
         }
     }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Usuario>()
+            .HasMany(usuario => usuario.Jogadores)
+            .WithOne(jogador => jogador.Usuario)
+            .HasForeignKey(jogador => jogador.UsuarioId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<Jogador>()
+            .HasMany(jogador => jogador.Participacoes)
+            .WithOne(participacao => participacao.Jogador)
+            .HasForeignKey(participacao => participacao.JogadorId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<Partida>()
+            .HasMany(partida => partida.Participacoes)
+            .WithOne(participacao => participacao.Partida)
+            .HasForeignKey(participacao => participacao.PartidaId)
+            .OnDelete(DeleteBehavior.Cascade);
+    }
 }
