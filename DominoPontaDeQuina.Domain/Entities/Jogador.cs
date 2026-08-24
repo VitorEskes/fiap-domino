@@ -20,6 +20,6 @@ public class Jogador
     [InverseProperty(nameof(Entities.Usuario.Jogadores))]
     public Usuario Usuario { get; set; } = null!;
 
-    [InverseProperty(nameof(ParticipacaoJogo.Jogador))]
-    public ICollection<ParticipacaoJogo> Participacoes { get; set; } = new List<ParticipacaoJogo>();
+    [InverseProperty(nameof(ParticipacaoPartida.Jogador))]
+    public ICollection<ParticipacaoPartida> Participacoes { get; set; } = new List<ParticipacaoPartida>();
 }

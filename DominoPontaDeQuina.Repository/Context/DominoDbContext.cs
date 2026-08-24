@@ -11,9 +11,9 @@ public class DominoDbContext : DbContext
 
     public DbSet<Jogador> Jogadores { get; set; } = null!;
 
-    public DbSet<Jogo> Jogos { get; set; } = null!;
+    public DbSet<Partida> Partidas { get; set; } = null!;
 
-    public DbSet<ParticipacaoJogo> ParticipacoesJogo { get; set; } = null!;
+    public DbSet<ParticipacaoPartida> ParticipacoesPartida { get; set; } = null!;
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
