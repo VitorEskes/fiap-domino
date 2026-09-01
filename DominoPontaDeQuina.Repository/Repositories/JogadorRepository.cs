@@ -46,6 +46,14 @@ public class JogadorRepository : IJogadorRepository
     }
 
     /// <inheritdoc />
+    public async Task<List<Jogador>> ListarTodosAsync()
+    {
+        return await _context.Jogadores
+            .OrderBy(jogador => jogador.NomeExibicao)
+            .ToListAsync();
+    }
+
+    /// <inheritdoc />
     public async Task<List<Jogador>> ListarPorUsuarioAsync(Guid usuarioId)
     {
         return await _context.Jogadores

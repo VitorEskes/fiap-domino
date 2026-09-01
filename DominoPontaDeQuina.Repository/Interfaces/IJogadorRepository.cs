@@ -8,6 +8,12 @@ namespace DominoPontaDeQuina.Repository.Interfaces;
 public interface IJogadorRepository : IRepositorioBase<Jogador>
 {
     /// <summary>
+    /// Lista todos os jogadores cadastrados em ordem alfabetica de nome de exibicao.
+    /// </summary>
+    /// <returns>Os jogadores cadastrados.</returns>
+    Task<List<Jogador>> ListarTodosAsync();
+
+    /// <summary>
     /// Lista os jogadores pertencentes ao usuario informado.
     /// </summary>
     /// <param name="usuarioId">O identificador do usuario.</param>
