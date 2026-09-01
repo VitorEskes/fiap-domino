@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DominoPontaDeQuina.Domain.Entities;
 
-[Table("ParticipacoesPartida")]
-public class ParticipacaoPartida
+[Table("TimesPartida")]
+public class TimePartida
 {
     [Key]
     public Guid Id { get; set; } = Guid.NewGuid();
@@ -15,17 +15,12 @@ public class ParticipacaoPartida
     public Partida Partida { get; set; } = null!;
 
     [Required]
-    public Guid JogadorId { get; set; }
-
-    public Jogador Jogador { get; set; } = null!;
-
-    public Guid? TimePartidaId { get; set; }
-
-    public TimePartida? Time { get; set; }
-
-    public int Posicao { get; set; }
+    [MaxLength(60)]
+    public string Nome { get; set; } = string.Empty;
 
     public int Pontuacao { get; set; }
 
     public bool Vencedor { get; set; }
+
+    public ICollection<ParticipacaoPartida> Participacoes { get; set; } = new List<ParticipacaoPartida>();
 }

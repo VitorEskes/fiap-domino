@@ -1,4 +1,5 @@
 using DominoPontaDeQuina.Domain.Entities;
+using DominoPontaDeQuina.Domain.Enums;
 using DominoPontaDeQuina.Repository.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -40,7 +41,7 @@ public class PartidaRepository
             .FirstOrDefaultAsync(partida => partida.Id == id);
     }
 
-    public async Task<List<Partida>> ListarPorStatusAsync(StatusJogo status)
+    public async Task<List<Partida>> ListarPorStatusAsync(StatusPartida status)
     {
         return await _context.Partidas
             .Where(partida => partida.Status == status)
